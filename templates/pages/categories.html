@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} {{ category.name }} {% endblock title %}
+{% block content %}
+
+{% if category %}
+
+<div class="container">
+    <h1 style="margin-top: 330px;">{{ category.name }}</h1>
+{% for news in news %}
+    <div class="row" style="position: relative;background: white; {% if forloop.last %}margin-bottom: 10px;{% endif %}margin-top: 15px; box-shadow: 0 2px 5px #9999;">
+        <div class="col-md-4" style="padding: 5px;">
+            <a href="{% url "detail_page" news.slug %}">
+                <img src="{{ news.image.url }}" style="border-radius: 5px; width: 100%;" alt="{{ news.title }}">
+            </a>
+        </div>
+        <div class="col-md-8" style="padding: 10px;">
+            <h3>
+               <a href="{% url "detail_page" news.slug %}">
+                {{ news.title|safe }}
+               </a>
+            </h4>
+            <p>
+                {{ news.body|safe|truncatewords:25 }}
+            </p>
+            <hr>
+            <small class="text-muted" >
+                {{ news.published_at }}
+            </small>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endif %}
+
+{% endblock content %}

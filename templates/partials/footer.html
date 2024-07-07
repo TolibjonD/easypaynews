@@ -1,0 +1,52 @@
+<footer id="footer">
+    <div class="footer_top">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInLeftBig">
+            <h2>Ijtimoiy Tarmoqlar</h2>
+            <ul class="tag_nav">
+              <li><a href="https://t.me/Saidkodirov">
+                <i class="fa-brands fa-telegram fa-xl" style="color: #0593ff;"></i>
+                @Saidkodirov
+              </a></li>
+              <li><a href="https://www.instagram.com/saidkodirof/">
+                <i class="fa-brands fa-instagram fa-xl" style="color: #fd2142;"></i>
+                @Saidkodirof
+              </a></li>
+              <li><a href="https://wa.me/998942742007">
+                <i class="fa-brands fa-whatsapp fa-xl" style="color: #34f980;"></i>
+                94-274-2007
+              </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInDown">
+            <h2>Katalog</h2>
+            <ul class="tag_nav">
+              {% if categories %}
+              {% for category in categories %}
+              <li><a href="{% url "categories" category.name %}">{{ category.name }}</a></li>
+              {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInRightBig">
+            <h2>Aloqa uchun</h2>
+            <p>Turkita davlati, Istanbul shahri</p>
+            <p>O'zbekiston Respublikasi, Namangan shahri</p>
+            <address>
+            Namangan viloyati Pop tumani. <br>
+            Telefon: 91-755-0524 Tel2: 94-274-20-07
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <p class="copyright">Copyright &copy; 2024 <a href="{% url "home" %}">News</a></p>
+      <p class="developer">Developed By Saidkodirov</p>
+    </div>
+  </footer>
