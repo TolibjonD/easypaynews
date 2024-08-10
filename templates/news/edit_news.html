@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Aloqa uchun {% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container">
+    <h1>yangilikni tahrirlash</h1>
+    {% if form %}
+    <form method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Saqlash" %}
+    </form>
+    {% endif %}
+</div>
+
+{% endblock content %}

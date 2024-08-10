@@ -50,6 +50,25 @@
               <li><a href="{% url "home" %}">Home</a></li>
               <li><a href="{% url "about" %}">About</a></li>
               <li><a href="{% url "contact" %}">Contact</a></li>
+              <li>
+                {% if request.user.is_authenticated %}
+                <!-- Single button -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    {{ request.user.username|title }} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li style="width: 100%;"><a style="width: 100%;" href="{% url "profile" %}">Profilga kirish</a></li>
+                    <li style="width: 100%;"><a style="width: 100%;" href="{% url "password_change" %}">Parolni o'zgartirish</a></li>
+                    <li style="border-top: 1px #9999 solid; width: 100%;">
+                      <a style="width: 100%;" href="{% url "logout" %}">Chiqish</a>
+                    </li>
+                  </ul>
+                </div>
+                {% else %}
+                <li class="bg-primary"><a href="{% url "login" %}">Login</a></li>
+                {% endif %}
+              </li>
             </ul>
           </div>
           <div class="header_top_right">
@@ -66,8 +85,6 @@
       </div>
     </div>
   </header>
-
-  
 
   {% include "partials/navbar.html" %}
   <section id="newsSection">

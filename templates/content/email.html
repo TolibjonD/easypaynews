@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>{{ site_name }} orqali ro'yxatdan o'tdingiz !.</h1>
+        </div>
+        <div class="content">
+            <p>Assalomu aleykum {{ user.first_name }},</p>
+            <p>Bizning yangiliklar web sahifamizdan ro'yxatdan o'tganingiz uchun tashakkur !</p>
+            <a href="https://t.me/Saidkodirov">
+                <img src="https://i.ibb.co/YWD7kPY/c30cb29d-8dd2-446b-924a-3730a21a885b-1.png" alt="{{ user.username }}" border="0" width="100%">
+            Bu bizning web sahfa admini. Har qanday murojaatlaringizni shu email orqali, web-sahifamiz orqali yoki ushbu havolaga bosish orqali qoldirishingiz mumkin.
+            </a>
+            <p>Qaynoq yangiliklarni o'tkazib yubormaslik uchun sahifamizga tashrif buyuring !...</p>
+            <p><b>Ismingiz:</b> {{ user.first_name }}</p>
+            <p><b>Sizning username:</b> {{ user.username }}</p>
+            <p><b>Sizning email:</b> {{ user.email }}</p>
+            <p><b>Ro'yxatdan o'tgan vaqtingiz:</b> {{ user.date_joined }}</p>
+        </div>
+        <div class="footer">
+            &copy; {{ year }} <a href="https://t.me/Saidkodirov">Saidkodirov</a> Inc. Barcha huquqlar himoyalangan.
+        </div>
+    </div>
+</body>
+</html>
